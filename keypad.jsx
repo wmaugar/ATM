@@ -1,38 +1,27 @@
-const Keypad = () => {
+const Keypad = ({setNumber, isValid}) => {
   //const [value, setValue] = React.useState("");
-  const [num, setNum] = React.useState("");
 //ejemplo de react function
  // setNumber(...number + value);
   /// KEYPAD
   const Square = ({keyOption}) => {
-   let newNum = num;
-         return (
-        <button className="square" onClick={() => {
-            if (keyOption === 'del') {setNum(0)}
-            else{
-              //setValue(keyOption);
-              setNum(newNum + keyOption)
-            }
-          }
-        } >
-          {keyOption}
+    return (
+        <button className="square" onClick={() => setNumber(keyOption)}>
+            {keyOption}
         </button>
       );
-    
   }
   
     const Board = () => {
-   
-      const renderSquare = (i) => {
+         const renderSquare = (i) => {
         return <Square keyOption={i}/>;
       }
       //const status = `Pressed Key: ${value}` ;
-      const currentNum = `Pressed Key: ${Number(num)}` ;
+      //const currentNum = `Pressed Key: ${Number(num)}` ;
   
       return (
-        <div>
+        <div disabled={isValid}>
           {/* <div className="status">{status}</div> */}
-          <div className="status">{currentNum}</div>
+          {/* <div className="status">{currentNum}</div> */}
 
           <div className="board-row">
             {renderSquare(1)}
@@ -76,5 +65,3 @@ const Keypad = () => {
     
 };
 // ========================================
-
-ReactDOM.render(<Keypad />, document.getElementById('root'));

@@ -1,13 +1,14 @@
-const ATMDeposit = ({ onChange, isDeposit, validChoice, isValid}) => {
+const ATMDeposit = ({ onChange, isDeposit, validChoice, isValid, setNumber}) => {
   const choice = ['Deposit', 'Cash Back'];
   console.log(`ATM isDeposit: ${isDeposit}`);
+  console.log(`ATM isValid: ${isValid}`);
   return (
     <label className="label huge">
       {validChoice && <div>
         <h3> {choice[Number(!isDeposit)]}</h3>
         <input id="number-input" type="number" width="200" onChange={onChange}></input>
         <input type="submit" disabled={isValid} width="200" value="Submit" id="submit-input"></input>
-        <Keypad disabled={isValid}/>
+        <Keypad setNumber={setNumber} isValid={isValid}></Keypad>
       </div>}
     </label>
   );
@@ -22,6 +23,13 @@ const Account = () => {
   const [validTransaction, setValidTransaction] = React.useState(false);
   const [num, setNum] = React.useState("");
 
+  const setNumber = (keyOption) => {
+    let newNum = num;
+    if (keyOption === 'del') {setNum(0)}
+    else{
+        setNum(newNum + keyOption)
+    }
+  }
 
   let status = `Account Balance $ ${totalState} `;
   console.log(`Account Rendered with isDeposit: ${isDeposit}`);
@@ -67,8 +75,9 @@ const Account = () => {
       <option id="deposit-selection" value="Deposit">Deposit</option>
       <option id="cashback-selection" value="Cash Back">Cash Back</option>
       </select>
-      <ATMDeposit onChange={handleChange} isDeposit={isDeposit} validChoice = {validChoice} isValid = {!validTransaction}></ATMDeposit>
-   
+      <ATMDeposit onChange={handleChange} setNumber={setNumber} isDeposit={isDeposit} validChoice = {validChoice} isValid = {!validTransaction}></ATMDeposit>
+      <div>Amount: {num}</div>
+     
     </form>
     
     
