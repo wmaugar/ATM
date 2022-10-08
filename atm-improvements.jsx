@@ -93,7 +93,7 @@ const Account = () => {
      
 
    return (
-    <div>
+    <div >
       <h2 id="total">{status}</h2>
       <div className={consoleClass}>{conMessage}</div>
       <select onChange={(e) => handleModeSelect(e)} name="mode" id="mode-select">
@@ -103,7 +103,7 @@ const Account = () => {
       </select>
 
       { validChoice && < div>
-        <div>Amount: {deposit}</div>
+        <div className="amount">Amount: {deposit}</div>
         <Keypad newDepo={newDeposit}></Keypad>
         <button onClick={handleSubmit} disabled={!validTransaction}>ENTER</button>
       </div>}

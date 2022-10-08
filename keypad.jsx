@@ -57,10 +57,6 @@ const Keypad = ({newDepo}) => {
           <div className="keypad-board">            
             <Board />
           </div>
-          <div className="keypad-info">
-            <div>{/* status */}</div>
-            <ol>{/* TODO */}</ol>
-          </div>
         </div>
       );
     

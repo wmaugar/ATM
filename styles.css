@@ -1,18 +1,32 @@
+* {
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.container{
+  width: auto;
+  height: 500px;;
+  margin: auto;
+  background-color:rgb(212, 235, 243);
+}
+
 button {
-  background-color: #0c80f3;
-  border: 6px solid #0ff166;
+  background-color: rgb(100, 125, 149);
+  border: 2px solid blue;
+  font-weight: bold;
   border-radius: 10px;
   width: 150px;
+  margin:auto;
+  padding: 10px 0px;
 }
 
 select {
-  display: block;
-  margin-bottom: 20px;
+  margin: auto;
+  
 }
 
 body {
   font: 14px "Century Gothic", Futura, sans-serif;
-  margin: 20px;
 }
 
 ol, ul {
@@ -52,13 +66,22 @@ ol, ul {
   background: #ddd;
 }
 
-.keypad{
-  display: flex;
-  flex-direction: row;
+.keypad-board{
+  margin: auto;
+  padding: 10px 0px;
 }
 
-.keypad-info {
-  margin-left: 20px;
+.keypad{
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.amount{
+  color: blue;
+  font-weight: 900;
+  font-size: large;
 }
 
 .console-normal {
@@ -68,7 +91,7 @@ ol, ul {
   height: auto;
   width: 200px;
   padding: 10px 10px;
-  margin: 10px 0 10px 0px; 
+  margin: auto; 
 }
 
 .console-error {
@@ -78,5 +101,5 @@ ol, ul {
   height: auto;
   width: 200px;
   padding: 10px 10px;
-  margin: 10px 0 10px 0px; 
+  margin: auto; 
 }
