@@ -1,28 +1,29 @@
-const Keypad = ({setNumber, isValid}) => {
+const Keypad = ({newDepo}) => {
   //const [value, setValue] = React.useState("");
 //ejemplo de react function
- // setNumber(...number + value);
+ // newDeposit(...number + value);
   /// KEYPAD
   const Square = ({keyOption}) => {
+   
     return (
-        <button className="square" onClick={() => setNumber(keyOption)}>
+        <button className="square" onClick={() => passKey(keyOption)}>
             {keyOption}
         </button>
       );
   }
   
+  const passKey = (key) =>{
+    newDepo(key);
+  }
+
     const Board = () => {
          const renderSquare = (i) => {
         return <Square keyOption={i}/>;
       }
-      //const status = `Pressed Key: ${value}` ;
-      //const currentNum = `Pressed Key: ${Number(num)}` ;
-  
+   
       return (
-        <div disabled={isValid}>
-          {/* <div className="status">{status}</div> */}
-          {/* <div className="status">{currentNum}</div> */}
-
+        <div>
+      
           <div className="board-row">
             {renderSquare(1)}
             {renderSquare(2)}
