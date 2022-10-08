@@ -16,9 +16,9 @@ const Account = () => {
  let consoleStatus = ['console-normal','console-error'];
  console.log('rendering');
  let status = `Account Balance $ ${totalState} `;
- // this function updates num value, wich represent current keypad input
- // it will replace to deposit
 
+ // this function validate if this is a valid transaction, and sets value of valid transaction
+ // it sets messages in cosole.
     function validateDeposit (newAmount){
       setValidTransaction(false);    
       if(atmMode=="Cash Back" && newAmount > totalState) {
@@ -33,7 +33,7 @@ const Account = () => {
         console.log('validTransaction:'+validTransaction)
       }
     }
-
+//this function us called each time user press a key, check if it is a valid deposit, and update deposit value.
 
    const newDeposit = (keyOption) => {
         
@@ -45,20 +45,8 @@ const Account = () => {
         validateDeposit(Number(newAmount));
         setDeposit(Number(newAmount));             
       }
-     
-
     }
 
-   
-
- // here we should verify if it is a valid deposit
-   
- // cash back is only allowed when deposite is less than total state
-
- 
-
-
-  
    
 // here update totalState (account Balance) using Deposit actual value  
     // if isDeposit true, then its a deposit, if false its a withdraw (cash back)
@@ -86,12 +74,7 @@ const Account = () => {
     }
   };
 
-  // this function is used to handle the change in input form, and update the value of Deposit
-  // firt checks if user introduces a positive number
-  //  then if there is enough funds (num < totalState)it sets isValidTransaction to true
-  // isValidTransaction is used to disable submit button
-     
-
+  
    return (
     <div >
       <h2 id="total">{status}</h2>
